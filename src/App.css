@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+.bg-new {
+  background: black;
+  color: #fff;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.annotation {
   color: white;
+  background: #ee0979; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ff6a00,
+    #ee0979
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ff6a00,
+    #ee0979
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.annotation:hover {
+  transform: scale(1.3);
+  transition: all 0.3s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+/*animacion del titulo*/
+span {
+  display: block;
+  position: relative;
+  padding: 0 0 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h1 {
+  font-size: 5rem !important;
+
+  color: black;
+}
+
+/*degradado
+  el before solo funciona si hay una palabra content
+  el contenido estara encima
+*/
+#rolex::before {
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  content: 'Rolex';
+  position: absolute;
+  inset: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textoanimado 9s infinite;
+  animation-delay: 0s;
+}
+#watches::before {
+  background: linear-gradient(90deg, #7928ca, #ff0080);
+  content: 'Watches';
+  position: absolute;
+
+  inset: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textoanimado 9s infinite;
+
+  animation-delay: 3.33s;
+}
+#online::before {
+  background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+  content: 'Online';
+  position: absolute;
+  inset: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textoanimado 9s infinite;
+  animation-delay: 6.66s;
+}
+
+/*las animaciones fucnionan con el numero de keyframes que les pongas por ejemplo:
+
+0-16 op 1
+16-33 op 0
+*/
+
+@keyframes textoanimado {
+  0%,
+  16.666%,
+  100% {
+    opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+  33.33%,
+  83.333% {
+    opacity: 0;
   }
 }
